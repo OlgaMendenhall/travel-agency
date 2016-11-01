@@ -1,0 +1,25 @@
+.row {
+	&__b-margin-until-medium {
+		margin-bottom: 1.65rem;
+    }
+}
+
+	@mixin atMedium {
+		.row {	
+			display: flex;
+			max-width: 1200px;		
+
+			&__medium-4 {		
+				flex: 1.2;
+			}
+
+			&__medium-8 {		
+				flex: 1.8;
+				padding-left: 65px;
+			}
+			&__b-margin-until-medium {
+				margin-bottom: 0; 
+            } 
+        }	
+	}    
+
