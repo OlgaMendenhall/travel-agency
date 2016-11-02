@@ -675,19 +675,21 @@ a {
     display: -ms-flexbox;
     display: flex;
     max-width: 1200px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .row__medium-4 {
-    -webkit-box-flex: 1.2;
-        -ms-flex: 1.2;
-            flex: 1.2;
+    width: 35%;
+  }
+
+  .row__medium-6 {
+    width: 45%;
   }
 
   .row__medium-8 {
-    -webkit-box-flex: 1.8;
-        -ms-flex: 1.8;
-            flex: 1.8;
-    padding-left: 65px;
+    width: 60%;
   }
 
   .row__b-margin-until-medium {
@@ -696,8 +698,9 @@ a {
 }
 
 .generic-content-container p {
+  font-weight: 300;
   line-height: 1.65;
-  margin: 1.8rem 0;
+  margin: 0 0 1.8rem 0;
 }
 
 /* gap between the paragraphs */
@@ -713,4 +716,88 @@ a {
   font-weight: 700;
 }
 
+.section-title {
+	font-size: 3rem;
+	font-weight: 300;
+	text-align: center;
+	margin-bottom: 3rem;
+
+}
+
+@media (min-width: 530px) {
+
+  .section-title {
+    font-size: 3.75rem;
+    margin-bottom: 3rem;
+  }
+}
+
+.section-title strong {
+  font-weight: 500;
+}
+
+.section-title__icon {
+  display: block;/* so the icon will be set on its own line */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .6rem;
+}
+
+@media (min-width: 530px) {
+
+  .section-title__icon {
+    margin-right: 1rem;
+    margin-left: 0;
+    margin-bottom: 0;
+    display: inline-block;/* on larger screens the icon will be set next to the title */
+  }
+}
+
+.feature-item {
+	
+	position: relative;
+	padding-bottom: 1.2rem;
+}
+
+@media (min-width: 530px) {
+
+  .feature-item {
+    padding-left: 5.875rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.feature-item p {
+  font-weight: 100;
+}
+
+.feature-item__icon {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 530px) {
+
+  .feature-item__icon {
+    position: absolute;
+    left: 0;
+  }
+}
+
+.feature-item__title {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-top: .7em;
+  margin-bottom: .8rem;
+  text-align: center;
+}
+
+@media (min-width: 530px) {
+
+  .feature-item__title {
+    text-align: left;
+    font-size: 1.875rem;
+    margin-top: 1em;
+  }
+}
 

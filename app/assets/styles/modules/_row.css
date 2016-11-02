@@ -7,16 +7,21 @@
 	@mixin atMedium {
 		.row {	
 			display: flex;
-			max-width: 1200px;		
+			max-width: 1200px;
+			justify-content: space-between;		
 
-			&__medium-4 {		
-				flex: 1.2;
+			&__medium-4 {
+				width: 35%;				
 			}
 
-			&__medium-8 {		
-				flex: 1.8;
-				padding-left: 65px;
+			&__medium-6 {		
+				width: 45%;
 			}
+
+			&__medium-8 {	
+				width: 60%;				
+			}
+			
 			&__b-margin-until-medium {
 				margin-bottom: 0; 
             } 
