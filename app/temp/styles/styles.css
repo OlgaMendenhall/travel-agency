@@ -593,6 +593,32 @@ a {
   }
 }
 
+.wrapper--no-padding-until-medium {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 800px) {
+
+  .wrapper--no-padding-until-medium {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+.wrapper--no-padding-until-large {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 1010px) {
+
+  .wrapper--no-padding-until-large {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
 .page-section {
 	padding: 1.2rem 0;
 }
@@ -607,6 +633,42 @@ a {
 .page-section--blue {
   background-color: #2f5572;
   color: #FFF;
+}
+
+.page-section--testimonials {
+  background-color: #e0e6ef;
+}
+
+/* light blue color */
+
+@media (min-width: 1010px) {
+
+  .page-section--testimonials {
+    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+    background-size: cover;/* this will shrink or stretch the image to always be large or small enough to perfectly cover the containing div */
+  }
+}
+
+.page-section--no-b-padding-until-medium {
+  padding-bottom: 0;
+}
+
+@media (min-width: 800px) {
+
+  .page-section--no-b-padding-until-medium {
+    padding-bottom: 4.5rem;
+  }
+}
+
+.page-section--no-b-padding-until-large {
+  padding-bottom: 0;
+}
+
+@media (min-width: 1010px) {
+
+  .page-section--no-b-padding-until-large {
+    padding-bottom: 4.5rem;
+  }
 }
 
 .headline {
@@ -664,20 +726,34 @@ a {
   margin-top: 0;
 }
 
-.row__b-margin-until-medium {
-  margin-bottom: 1.65rem;
+.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1010px) {
 
   .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     max-width: 1200px;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+  }
+
+  .row__large-3 {
+    width: 30.6%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;/* to make our columns equal hight  */
   }
 
   .row__medium-4 {
@@ -695,6 +771,14 @@ a {
   .row__b-margin-until-medium {
     margin-bottom: 0;
   }
+}
+
+.row__b-margin-until-medium {
+  margin-bottom: 1.65rem;
+}
+
+.row--t-padding {
+  padding-top: 5rem;/* as we moved up testimonial photos a half of their height 5rem */
 }
 
 .generic-content-container p {
@@ -736,6 +820,10 @@ a {
   font-weight: 500;
 }
 
+.section-title--blue {
+  color: #2f5572;
+}
+
 .section-title__icon {
   display: block;/* so the icon will be set on its own line */
   margin-left: auto;
@@ -746,6 +834,8 @@ a {
 @media (min-width: 530px) {
 
   .section-title__icon {
+    position: relative;
+    top: 8px;
     margin-right: 1rem;
     margin-left: 0;
     margin-bottom: 0;
@@ -799,5 +889,49 @@ a {
     font-size: 1.875rem;
     margin-top: 1em;
   }
+}
+
+.testimonial {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 0 1.125rem 1px 1.125rem;
+	margin-bottom: 6.5rem;
+}
+
+@media (min-width: 1010px) {
+
+  .testimonial {
+    padding: 0 1.8125rem 1px 1.8125rem;
+    margin-bottom: 0;
+  }
+}
+
+.testimonial__photo {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 10rem;/* we assign exact width and height of the image, which is 160px - 10rem */
+  height: 10rem;
+  margin: 0 auto -5rem auto;/* we use negative margin -5rem to move up the content under image */
+  position: relative;
+  top: -5rem;
+  border: 6px solid rgba(255, 255, 255, .8);
+}
+
+.testimonial__title {
+  color: #2f5572;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;/* to low margin above the title */
+}
+
+.testimonial__subtitle {
+  color: #d59541;
+  text-align: center;
+  font-size: .9375rem;
+  margin: .25rem 0 1rem 0;
+}
+
+.testimonial--last {
+  margin-bottom: 0;
 }
 

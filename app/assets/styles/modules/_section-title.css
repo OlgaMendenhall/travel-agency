@@ -13,6 +13,10 @@
 		font-weight: 500; 
 	}
 
+	&--blue {
+		color: $mainBlue;
+	}
+
 	&__icon {		
 		display: block;      /* so the icon will be set on its own line */
 		margin-left: auto;
@@ -20,6 +24,8 @@
 		margin-bottom: .6rem;	
 
 		@mixin atSmall {
+			position: relative;
+			top: 8px;
 			margin-right: 1rem;
 			margin-left: 0;
 			margin-bottom: 0;

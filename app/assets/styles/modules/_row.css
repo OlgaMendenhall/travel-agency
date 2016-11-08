@@ -1,30 +1,44 @@
 .row {
+	display: flex;
+	flex-direction: column;
+	
+	@mixin atLarge {			
+	    flex-direction: row;
+		max-width: 1200px;
+		justify-content: space-between;
+
+		&__large-3 {
+			width: 30.6%;
+			display: flex;	/* to make our columns equal hight  */			
+		}	
+
+		&__medium-4 {
+			width: 35%;				
+		}
+
+		&__medium-6 {		
+			width: 45%;
+		}
+
+		&__medium-8 {	
+			width: 60%;				
+		}
+		
+		&__b-margin-until-medium {
+			margin-bottom: 0; 
+        }            
+    }
+    	
+
 	&__b-margin-until-medium {
 		margin-bottom: 1.65rem;
     }
+
+    &--t-padding {
+    	padding-top: 5rem; /* as we moved up testimonial photos a half of their height 5rem */
+    }
 }
-
-	@mixin atMedium {
-		.row {	
-			display: flex;
-			max-width: 1200px;
-			justify-content: space-between;		
-
-			&__medium-4 {
-				width: 35%;				
-			}
-
-			&__medium-6 {		
-				width: 45%;
-			}
-
-			&__medium-8 {	
-				width: 60%;				
-			}
-			
-			&__b-margin-until-medium {
-				margin-bottom: 0; 
-            } 
-        }	
-	}    
+	
+	
+	    
 

@@ -1,0 +1,40 @@
+.testimonial {
+	background-color: rgba(255, 255, 255, .8);
+	padding: 0 1.125rem 1px 1.125rem;
+	margin-bottom: 6.5rem;
+
+	@mixin atLarge {
+		padding: 0 1.8125rem 1px 1.8125rem;
+		margin-bottom: 0;
+	}
+
+	&__photo {
+		border-radius: 50%;
+		overflow: hidden;
+		width: 10rem;  /* we assign exact width and height of the image, which is 160px - 10rem */
+		height: 10rem;
+		margin: 0 auto -5rem auto;  /* we use negative margin -5rem to move up the content under image */
+		position: relative;
+		top: -5rem; 
+		border: 6px solid rgba(255, 255, 255, .8); 
+	}
+
+	&__title {
+		color: $mainBlue;
+		text-align: center;
+		font-size: 1.5rem;
+		font-weight: 500;
+		margin: 0;       /* to low margin above the title */  
+	}
+
+	&__subtitle {
+		color: $mainOrange;
+		text-align: center;
+		font-size: .9375rem;
+		margin: .25rem 0 1rem 0;
+	}
+
+	&--last {
+		margin-bottom: 0;
+	}
+}
