@@ -1,0 +1,127 @@
+.site-header {
+	position: absolute;   /* position absolute places our header to overlap our large-hero banner as our design needs it */
+	width: 100%;
+	z-index: 2;           /* z-index=2 places our header on top of our large-hero banner */	
+	padding: 10px 0;
+	transition: background-color .3s ease-out;
+
+	&--is-expanded {
+		background-color: rgba($mainBlue, .55);
+	}
+
+	@mixin atMedium {
+		background-color: rgba($mainBlue, .3);
+	}
+
+	&__btn-container {		
+
+		@mixin atMedium {
+			float: right;
+		}
+	}
+
+	&__logo {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%) scale(.86);  /* it centers our logo on small screens. scale shrinks the logo - as our logo is a sprite image */
+		transform-origin: 50% 0;   /* zero here sticks our logo to the top */
+		background-color: $mainBlue;
+		padding: 1.5rem 2.25rem;
+
+		@mixin atMedium {
+			left: auto;
+			transform: translateX(0);  /* these two lines of code undo logo centering */
+		}
+	}
+
+	&__logo__graphic {
+		text-indent: -9999px;
+	}
+
+	&__menu-icon {      /* styling hamburger menu for small screens */
+		width: 20px;
+		height: 19px;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		z-index: 10;   /* this way our mobile menu icon will be on top of all layers and will be clickable */
+
+		&::before {       /* top bar of our hamburger menu */
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transform-origin: 0 0;  /* so browser rotates our top bar of hamburger menu aroung point 0,0 -> top left corner -> 0 horizontal center and 0 vertical center */
+			transition: transform .3s ease-out;
+		}
+
+		&__middle {       /* middle bar of our hamburger menu */
+			position: absolute;
+			top: 8px;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transition: all .3s ease-out;  /* all - because we meke transitoin of opacity and scale */
+			transform-origin: 0 50%;    /* left edge horisontally and 50% vertically - which is center */
+		}
+
+		&::after {       /* bottom bar of our hamburger menu */
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 20px;
+			height: 3px;
+			background-color: #FFF;
+			transform-origin: 0 100%;  /* rotation aroung left bottom corner */
+			transition: transform .3s ease-out;
+		}
+
+		@mixin atMedium {
+			display: none;    /* hiding hamburger menu on larger screens */
+		}
+	}
+
+	&__menu-icon--close-x {   /* animating our hamburger menu */
+		&::before {
+			transform: rotate(45deg) scaleX(1.25);	/* this rotates clockwise and elongates our menu bar*/		
+		}
+
+		.site-header__menu-icon__middle {
+			opacity: 0;      /* hides middle bar of our hamburger menu */
+			transform: scaleX(0);
+		}
+
+		&::after {
+			transform: rotate(-45deg) scaleX(1.25) translateY(1px);	/* this rotates and elongates our menu bar, translateY moves it vertically 1px to match its position */		
+		}
+	}
+
+	&__menu-content {
+		opacity: 0;    /* we hide menu on small screens */
+		transform: scale(1.2);   /* first our content will appear 20% large than it really is */
+		transition: all .3s ease-out;
+		z-index: -10;  /* we put menu content underneath all the content, so user can't click on it accidently, we don't want it to be clicked, it's hidden at this point */
+		position: relative;  /* so the browser will accept z-index value */
+		padding-top: 90px;
+		text-align: center;
+
+		@mixin atMedium {
+			opacity: 1;     /* we show menu on medium and large screens */
+			z-index: 1;   
+			padding-top: 0;
+			transform: scale(1); /* we want browser use normal content size for medium and large screens */
+		}
+
+		&--is-visible {     /* here we adjust menu for jQuery JavaScript changes */
+			opacity: 1;
+			z-index: 1;
+			transform: scale(1);		
+		}
+	}	
+}

@@ -488,6 +488,7 @@ a {
 }
 
 .large-hero__text-content {
+  padding-top: 88px;
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -495,6 +496,13 @@ a {
   left: 0;
   width: 100%;
   text-align: center;
+}
+
+@media (min-width: 800px) {
+
+  .large-hero__text-content {
+    padding-top: 60px;
+  }
 }
 
 .large-hero__title {
@@ -1070,5 +1078,242 @@ a {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+}
+
+.site-header {
+	position: absolute;   /* position absolute places our header to overlap our large-hero banner as our design needs it */
+	width: 100%;
+	z-index: 2;           /* z-index=2 places our header on top of our large-hero banner */	
+	padding: 10px 0;
+	-webkit-transition: background-color .3s ease-out;
+	transition: background-color .3s ease-out;	
+}
+
+.site-header--is-expanded {
+  background-color: rgba(47,85,114, .55);
+}
+
+@media (min-width: 800px) {
+
+  .site-header {
+    background-color: rgba(47,85,114, .3);
+  }
+}
+
+@media (min-width: 800px) {
+
+  .site-header__btn-container {
+    float: right;
+  }
+}
+
+.site-header__logo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%) scale(.86);
+          transform: translateX(-50%) scale(.86);/* it centers our logo on small screens. scale shrinks the logo - as our logo is a sprite image */
+  -webkit-transform-origin: 50% 0;
+          transform-origin: 50% 0;/* zero here sticks our logo to the top */
+  background-color: #2f5572;
+  padding: 1.5rem 2.25rem;
+}
+
+@media (min-width: 800px) {
+
+  .site-header__logo {
+    left: auto;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);/* these two lines of code undo logo centering */
+  }
+}
+
+.site-header__logo__graphic {
+  text-indent: -9999px;
+}
+
+.site-header__menu-icon {/* styling hamburger menu for small screens */
+  width: 20px;
+  height: 19px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+/* this way our mobile menu icon will be on top of all layers and will be clickable */
+
+.site-header__menu-icon::before {/* top bar of our hamburger menu */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #FFF;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;/* so browser rotates our top bar of hamburger menu aroung point 0,0 -> top left corner -> 0 horizontal center and 0 vertical center */
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+}
+
+.site-header__menu-icon__middle {/* middle bar of our hamburger menu */
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #FFF;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;/* all - because we meke transitoin of opacity and scale */
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;/* left edge horisontally and 50% vertically - which is center */
+}
+
+.site-header__menu-icon::after {/* bottom bar of our hamburger menu */
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 3px;
+  background-color: #FFF;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;/* rotation aroung left bottom corner */
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+}
+
+@media (min-width: 800px) {
+
+  .site-header__menu-icon {
+    display: none;/* hiding hamburger menu on larger screens */
+  }
+}
+
+/* animating our hamburger menu */
+
+.site-header__menu-icon--close-x::before {
+  -webkit-transform: rotate(45deg) scaleX(1.25);
+          transform: rotate(45deg) scaleX(1.25);/* this rotates clockwise and elongates our menu bar*/
+}
+
+.site-header__menu-icon--close-x .site-header__menu-icon__middle {
+  opacity: 0;/* hides middle bar of our hamburger menu */
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+.site-header__menu-icon--close-x::after {
+  -webkit-transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+          transform: rotate(-45deg) scaleX(1.25) translateY(1px);/* this rotates and elongates our menu bar, translateY moves it vertically 1px to match its position */
+}
+
+.site-header__menu-content {
+  opacity: 0;/* we hide menu on small screens */
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);/* first our content will appear 20% large than it really is */
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  z-index: -10;/* we put menu content underneath all the content, so user can't click on it accidently, we don't want it to be clicked, it's hidden at this point */
+  position: relative;/* so the browser will accept z-index value */
+  padding-top: 90px;
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+
+  .site-header__menu-content {
+    opacity: 1;/* we show menu on medium and large screens */
+    z-index: 1;
+    padding-top: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);/* we want browser use normal content size for medium and large screens */
+  }
+}
+
+.site-header__menu-content--is-visible {/* here we adjust menu for jQuery JavaScript changes */
+  opacity: 1;
+  z-index: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.primary-nav {
+  padding-top: 10px;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav {
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav--pull-right {
+    float: right;
+  }
+}
+
+.primary-nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+.primary-nav ul::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.primary-nav li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 7px;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li {
+    padding-right: 20px;
+    float: left;
+    display: block;
+  }
+}
+
+.primary-nav li:last-child {
+  padding-right: 0;
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav li:last-child {
+    padding-right: 20px;
+  }
+}
+
+.primary-nav a {
+  color: #FFF;
+  font-weight: 300;
+  text-decoration: none;
+  display: block;
+  padding: 5px 8px;
+  font-size: .8rem;
+  background-color: rgba(47,85,114, .5);
+}
+
+@media (min-width: 800px) {
+
+  .primary-nav a {
+    font-size: 1rem;
+    padding: 12px 0;
+    background-color: transparent;
   }
 }
