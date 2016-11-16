@@ -1,0 +1,48 @@
+.modal {
+	position: fixed;
+	z-index: 5;
+	background-color: rgba(255, 255, 255, .94);
+	top: 0;     /* to take up all the height of the browser viewport*/
+	bottom: 0;
+	left: 0;    /* to take up all the width of the browser viewport*/
+	right: 0;
+	opacity: 0;  /* on page load the modal is hidden*/
+	visibility: hidden;
+	transform: scale(1.5);
+	transition: all .3s ease-out;
+
+	&--is-visible {
+		opacity: 1;   /* showes the modal window when it's clicked and JS runs */
+		visibility: visible;
+		transform: scale(1);
+	}
+
+	&__inner {    /* here we center our modal window content vertically */
+		position: absolute;
+		width: 100%;
+		top: 50%;		
+		transform: translateY(-50%);
+	}
+
+	&__description {
+		text-align: center;
+		font-size: 1.3rem;
+		font-weight: 300;
+		line-height: 1.65;
+	}
+
+	&__close {     /* here we're positioning our modal window CLOSE sign  */
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		font-size: 2rem;
+		transform: scaleX(1.2);
+		transform-origin: 100% 0;   /* we fix the origin of transform, so our X expand from the top right corner, when we need to */
+		color: $mainBlue;
+		cursor: pointer;
+
+		&:hover {
+			color: $mainOrange;
+		}
+	}
+}

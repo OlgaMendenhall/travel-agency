@@ -1,0 +1,25 @@
+.social-icons {
+	text-align: center;
+
+	&__icon {
+		background-color: $mainOrange;
+		display: inline-block;    /* this way all the social media icons will sit on a single line, and they can have a custom height */
+		margin: 0 5px 7px 5px;
+		width: 33%;
+		height: 72px;
+		position: relative;
+
+		@mixin atSmall {
+			width: 72px;
+			margin: 0 5px;
+		}
+	}
+
+	.icon {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
