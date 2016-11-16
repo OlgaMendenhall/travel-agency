@@ -14,8 +14,10 @@
 		background-color: #e0e6ef;  /* light blue color */
 
 		@mixin atLarge {
-			background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-			background-size: cover; /* this will shrink or stretch the image to always be large or small enough to perfectly cover the containing div */
+			&.lazyloaded {
+				background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+				background-size: cover; /* this will shrink or stretch the image to always be large or small enough to perfectly cover the containing div */
+			}
 		}
 		
 	}
