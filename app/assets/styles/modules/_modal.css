@@ -8,7 +8,7 @@
 	right: 0;
 	opacity: 0;  /* on page load the modal is hidden*/
 	visibility: hidden;
-	transform: scale(1.5);
+	transform: scale(1.2);
 	transition: all .3s ease-out;
 
 	&--is-visible {

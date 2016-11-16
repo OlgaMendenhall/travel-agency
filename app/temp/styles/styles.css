@@ -464,6 +464,8 @@ template {
 	box-sizing: border-box;
 }
 
+body, html { overflow-x:hidden; }
+
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
@@ -738,9 +740,9 @@ a {
   margin-top: 0;
 }
 
-.row {
-	display: -webkit-box;
-	display: -ms-flexbox;
+.row {	
+	display: -webkit-box;	
+	display: -ms-flexbox;	
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
@@ -1373,8 +1375,8 @@ a {
 	right: 0;
 	opacity: 0;  /* on page load the modal is hidden*/
 	visibility: hidden;
-	-webkit-transform: scale(1.5);
-	        transform: scale(1.5);
+	-webkit-transform: scale(1.2);
+	        transform: scale(1.2);
 	-webkit-transition: all .3s ease-out;
 	transition: all .3s ease-out;
 }
