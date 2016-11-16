@@ -40,7 +40,7 @@
 			transform: translateX(0);  /* these two lines of code undo logo centering */
 
 			.site-header--dark & {   /* this selector will target the logo, only when the dark header is being used */
-				transform: scale(.57);
+				transform: scale(.56);
 			}
 		}
 	}
