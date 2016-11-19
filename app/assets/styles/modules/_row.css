@@ -1,6 +1,6 @@
 .row {	
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;	
 
 	
 	@mixin atMedium {

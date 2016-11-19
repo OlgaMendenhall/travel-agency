@@ -464,8 +464,6 @@ template {
 	box-sizing: border-box;
 }
 
-body, html { overflow-x:hidden; }
-
 body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
@@ -576,6 +574,7 @@ a {
 }
 
 .wrapper {
+	overflow: hidden;
 	padding-left: 18px;
 	padding-right: 18px;
 	max-width: 1236px;  /* to have exact 1200px width we add 18+18=36px padding to it, because of the border-box rule */
